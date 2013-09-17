@@ -1,0 +1,10 @@
+<html>
+	<body>
+		<ul>
+			{% for todo in todos %}
+			<li>{{ todo.task }}</li>
+			{% endfor %}
+		</ul>
+		<a href="/todo/add">add</a>
+	</body>
+</html>

@@ -4,4 +4,5 @@ from .models import Todo
 
 
 class TodoForm(ModelForm):
-    model = Todo
+    class Meta:
+        model = Todo

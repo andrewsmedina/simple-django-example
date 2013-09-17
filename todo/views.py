@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 from .forms import TodoForm
 from .models import Todo
@@ -6,12 +6,12 @@ from .models import Todo
 
 def list(request):
     todos = Todo.objects.all()
-    return render(request, {"todos": todos}, "list.html")
+    return render(request, "list.html", {"todos": todos})
 
 
 def add(request):
-    form = TodoForm(request.POST or {})
+    form = TodoForm(request.POST or None)
     if form.is_valid():
         form.save()
-        return redirect("/")
-    return render(request, {"form": form}, "add.html")
+        return redirect("/todo")
+    return render(request, "add.html", {"form": form})
