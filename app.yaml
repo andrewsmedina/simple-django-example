@@ -1,5 +1,5 @@
 hooks:
   restart:
     before:
-      - python manage.py syncdb --noinput
-      - python manage.py migrate
+      - PYTHONPATH=. python simple/manage.py syncdb --noinput
+      - PYTHONPATH=. python simple/manage.py migrate
